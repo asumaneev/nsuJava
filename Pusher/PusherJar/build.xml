@@ -1,0 +1,85 @@
+<project name = "Pusher" default = "jar" basedir = ".">
+
+	<property name = "src.dir" value = "src"/>
+	<property name = "build.dir" value = "build"/>
+	<property name = "classes.dir" value = "${build.dir}/classes"/>
+	<property name = "junit.classes.dir" value = "${build.dir}/test"/>
+	<property name = "jar.dir" value = "${build.dir}/jar"/>
+	
+	<property name = "lib.dir" value = "lib"/>
+	<property name = "doc.dir" value = "${build.dir}/doc"/>
+	
+	<property name = "main-class" value = "ru.nsu.sumaneev.controller.Main"/>
+	
+	<property name = "junit.lib.dir" value = "${lib.dir}/junit"/>
+	<property name = "junit.src.dir" value = "test"/>
+	
+    <path id="classpath.junit">
+        <fileset dir="${junit.lib.dir}" includes="**/*.jar"/>
+    </path>
+	
+	<path id="application" location="${jar.dir}/${ant.project.name}.jar"/>
+	
+	<target name = "javadoc">
+		<mkdir dir = "${doc.dir}"/>
+		<javadoc packagenames="*" sourcepath = "${src.dir}" destdir = "${doc.dir}"/>
+	</target>
+	
+	<target name = "clean">
+		<delete dir = "${build.dir}"/>
+	</target>
+	
+	<target name = "compile">
+	
+		<mkdir dir = "${classes.dir}"/>
+			
+		<javac  includeantruntime="false" debug="false" deprecation="true" optimize="true" 
+				 destdir = "${classes.dir}">
+			<src path = "${src.dir}"/>
+			<src path = "${junit.src.dir}" />
+			<classpath>
+				<path refid = "classpath.junit"/>
+			</classpath>
+		</javac>
+
+	</target>
+	
+	<target name="properties">
+		<native2ascii encoding="Cp1251"
+					  dest="${classes.dir}"
+					  includes="**/*.sk" excludes="**/*.java"/>
+	</target>
+	
+	<target name = "jar" depends = "compile, properties">
+		
+		<mkdir dir = "${jar.dir}"/>
+		
+		<jar jarfile = "${jar.dir}/${ant.project.name}.jar" basedir = "${classes.dir}">
+			<manifest>
+				<attribute name = "Main-Class" value = "${main-class}"/>
+			</manifest>
+		</jar>
+		
+	</target>
+	
+	<target name="test" depends="jar">
+
+		<junit printsummary="yes" fork="yes" showoutput="yes" haltonfailure="yes">
+            
+			<formatter type="plain" usefile="false"/>
+			
+			<classpath>
+                <path refid="classpath.junit"/>
+                <path refid="application"/>
+            </classpath>
+                
+            
+            <batchtest fork="yes" todir="${report.dir}">
+                <fileset dir="${junit.src.dir}">
+					<include name = "**/${ant.project.name}Test*.java"/>
+				</fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+</project>

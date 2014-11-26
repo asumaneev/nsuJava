@@ -1,0 +1,61 @@
+15:36:47,815 DEBUG main Factory:<init>:35 - open config file: "C:\Users\Artem\Documents\Eclipse\Projects\LogoWorld\factory.cfg"
+15:36:47,846 DEBUG main Factory:<init>:38 - load configuration from config file
+15:36:47,862 DEBUG main Factory:<init>:45 - fill map with classes' and commands' names
+15:36:47,862 DEBUG main Factory:<init>:62 - finish
+15:36:47,862 DEBUG main Controller:<init>:52 - factory is created
+15:36:47,862 DEBUG main Controller:<init>:54 - finish
+15:36:55,081 DEBUG main Controller:run:75 - read data
+15:36:55,081 DEBUG main Parser:parseArguments:23 - parse data: init 5 5 5 5
+15:36:55,081 DEBUG main Parser:parseArguments:31 - recieved command name: INIT
+15:36:55,081 DEBUG main Parser:parseArguments:45 - recieved arguments: 5 5 5 5
+15:36:55,081 DEBUG main Parser:parseArguments:47 - finish
+15:36:55,081 DEBUG main Controller:run:102 - call command "INIT" with parameters "5 5 5 5"
+15:36:55,081 DEBUG main Factory:newInstance:75 - get new command: INIT
+15:36:55,081 DEBUG main Factory:newInstance:89 - finish
+15:36:55,081 DEBUG main Init:run:23 - split paremeters: 5 5 5 5
+15:36:55,081 DEBUG main Init:run:34 - parse parameters to int
+15:36:55,081 DEBUG main Init:run:55 - resize field
+15:36:55,081 DEBUG main Field:resize:37 - resize field
+15:36:55,081 DEBUG main Field:resize:42 - create new field
+15:36:55,081 DEBUG main Field:resize:46 - fill new field
+15:36:55,081 DEBUG main Command:validateCoordinate:32 - validate coordinate 5by size 5
+15:36:55,081 DEBUG main Command:validateCoordinate:32 - validate coordinate 5by size 5
+15:36:55,081 DEBUG main Field:setAP:68 - set new coordiantes for AP: 0 0
+15:36:55,081 DEBUG main Field:setAP:70 - mark previous cell with FREE
+15:36:55,081 DEBUG main Init:run:70 - finish
+15:36:55,081 DEBUG main View:printField:40 - print field
+15:36:55,081 DEBUG main View:printField:82 - finish
+15:37:02,489 DEBUG main Controller:run:75 - read data
+15:37:02,489 DEBUG main Parser:parseArguments:23 - parse data: draw
+15:37:02,489 DEBUG main Parser:parseArguments:31 - recieved command name: DRAW
+15:37:02,489 DEBUG main Parser:parseArguments:45 - recieved arguments: 
+15:37:02,489 DEBUG main Parser:parseArguments:47 - finish
+15:37:02,489 DEBUG main Controller:run:102 - call command "DRAW" with parameters ""
+15:37:02,489 DEBUG main Factory:newInstance:75 - get new command: DRAW
+15:37:02,489 DEBUG main Factory:newInstance:89 - finish
+15:37:02,489 DEBUG main Draw:run:24 - make field draw
+15:37:02,489 DEBUG main Field:setDrawing:144 - set drawing mode: true
+15:37:02,489 DEBUG main Draw:run:28 - finish
+15:37:02,489 DEBUG main View:printField:40 - print field
+15:37:02,489 DEBUG main View:printField:82 - finish
+15:37:06,646 DEBUG main Controller:run:75 - read data
+15:37:06,646 DEBUG main Parser:parseArguments:23 - parse data: move l 1
+15:37:06,646 DEBUG main Parser:parseArguments:31 - recieved command name: MOVE
+15:37:06,646 DEBUG main Parser:parseArguments:45 - recieved arguments: l 1
+15:37:06,646 DEBUG main Parser:parseArguments:47 - finish
+15:37:06,646 DEBUG main Controller:run:102 - call command "MOVE" with parameters "l 1"
+15:37:06,646 DEBUG main Factory:newInstance:75 - get new command: MOVE
+15:37:06,646 DEBUG main Factory:newInstance:89 - finish
+15:37:06,646 DEBUG main Move:run:30 - split parameters: l 1
+15:37:06,646 DEBUG main Move:run:54 - move AP to the "l" on 1step(s)
+15:37:06,646 DEBUG main Field:moveX:93 - move AP along X on 1 steps in -1
+15:37:06,646 DEBUG main Command:validateCoordinate:32 - validate coordinate -1by size 5
+15:37:06,646 DEBUG main Command:validateCoordinate:32 - validate coordinate 0by size 5
+15:37:06,646 DEBUG main Move:run:77 - finish
+15:37:06,662 DEBUG main View:printField:40 - print field
+15:37:06,662 DEBUG main View:printField:82 - finish
+15:37:09,304 DEBUG main Controller:run:75 - read data
+15:37:09,304 DEBUG main Parser:parseArguments:23 - parse data: exit
+15:37:09,304 DEBUG main Parser:parseArguments:31 - recieved command name: EXIT
+15:37:09,304 DEBUG main Controller:run:81 - program is closedcorrectly
+15:37:09,304 DEBUG main Controller:main:134 - finish
